@@ -2,7 +2,7 @@
 
 1. create docker image
 ```
-docker build -t ansible_base:latest .
+docker build -t ansible_base:latest docker
 ```
 2. start containers
 ```
@@ -12,15 +12,15 @@ docker-compose up -d
 ```
 docker-compose exec control bash
 ```
-4. ssh from control to other container eg.: lb1
+4. ensure ssh service
+```
+service ssh status
+```
+5. ssh from control to other container eg.: lb1
 ```
 root@control $ ssh lb1   
 ```
-5. install ansible
+6. install ansible on control container
 ```
-root@control $ yum install -y epel-release
-root@control $ yum install -y ansible
-root@control $ ansible --version
-root@control $ ansible-playbook --version
-root@control $ ansible-galaxy --version
+work/ansible/install-ansible.sh
 ```
