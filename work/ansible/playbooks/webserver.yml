@@ -1,0 +1,12 @@
+---
+  - hosts: webserver
+    tasks:
+      - name: install web components
+        apt:
+          pkg:
+            - apache2
+            - libapache2-mod-wsgi
+            - python3-pip
+            - python3-virtualenv
+          state: present
+          update_cache: yes
