@@ -1,0 +1,7 @@
+Host *
+User root
+UserKnownHostsFile /dev/null
+StrictHostKeyChecking no
+PasswordAuthentication no
+IdentityFile ~/.ssh/id_rsa
+IdentitiesOnly yes

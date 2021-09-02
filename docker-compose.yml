@@ -1,0 +1,54 @@
+version: '3.3'
+
+services:
+  control:
+    container_name: control
+    hostname: control
+    image: ansible_base:latest
+    tty: true
+    secrets:
+      - user_ssh_key
+      - user_ssh_key_pub
+    privileged: true # Required for /usr/sbin/init
+  lb1:
+    container_name: lb1
+    hostname: lb1
+    image: ansible_base:latest
+    tty: true
+    secrets:
+      - user_ssh_key
+      - user_ssh_key_pub
+    privileged: true # Required for /usr/sbin/init
+  app01:
+    container_name: app01
+    hostname: app01
+    image: ansible_base:latest
+    tty: true
+    secrets:
+      - user_ssh_key
+      - user_ssh_key_pub
+    privileged: true # Required for /usr/sbin/init
+  app02:
+    container_name: app02
+    hostname: app02
+    image: ansible_base:latest
+    tty: true
+    secrets:
+      - user_ssh_key
+      - user_ssh_key_pub
+    privileged: true # Required for /usr/sbin/init
+  db01:
+    container_name: db01
+    hostname: db01
+    image: ansible_base:latest
+    tty: true
+    secrets:
+      - user_ssh_key
+      - user_ssh_key_pub
+    privileged: true # Required for /usr/sbin/init
+
+secrets:
+  user_ssh_key:
+    file: ./ansible_key
+  user_ssh_key_pub:
+    file: ./ansible_key.pub
