@@ -16,3 +16,11 @@ docker-compose exec control bash
 ```
 root@control $ ssh lb1   
 ```
+5. install ansible
+```
+root@control $ yum install -y epel-release
+root@control $ yum install -y ansible
+root@control $ ansible --version
+root@control $ ansible-playbook --version
+root@control $ ansible-galaxy --version
+```

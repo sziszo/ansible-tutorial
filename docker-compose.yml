@@ -10,9 +10,11 @@ services:
       - user_ssh_key
       - user_ssh_key_pub
     privileged: true # Required for /usr/sbin/init
-  lb1:
-    container_name: lb1
-    hostname: lb1
+    volumes:
+      - ./work:/work
+  lb01:
+    container_name: lb01
+    hostname: lb01
     image: ansible_base:latest
     tty: true
     secrets:
@@ -46,6 +48,7 @@ services:
       - user_ssh_key
       - user_ssh_key_pub
     privileged: true # Required for /usr/sbin/init
+
 
 secrets:
   user_ssh_key:
