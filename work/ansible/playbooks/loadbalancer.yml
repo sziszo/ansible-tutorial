@@ -1,6 +1,13 @@
 ---
   - hosts: loadbalancer
     tasks:
+      - name: install tools
+        apt:
+          name:
+            - python3-httplib2
+          state: present
+          update_cache: yes
+
       - name: install nginx
         apt:
           name: nginx
