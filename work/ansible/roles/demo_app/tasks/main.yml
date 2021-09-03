@@ -1,0 +1,28 @@
+---
+- name: install web components
+  apt:
+    pkg:
+      - python3-pip
+      - python3-venv
+      - python3-mysqldb
+    state: present
+    update_cache: yes
+
+- name: copy demo app source
+  copy: src=demo/app/ dest=/var/www/demo mode=0755
+  notify: restart apache2
+
+- name: copy apache virtual host config
+  copy: src=demo/demo.conf dest=/etc/apache2/sites-available mode=0755
+  notify: restart apache2
+
+- name: setup virtualenv
+  pip:
+    requirements: /var/www/demo/requirements.txt
+    virtualenv: /var/www/demo/.venv
+    virtualenv_command: /usr/bin/python3 -m venv
+  notify: restart apache2
+
+- name: activate demo apache site
+  file: src=/etc/apache2/sites-available/demo.conf dest=/etc/apache2/sites-enabled/demo.conf state=link
+  notify: restart apache2
