@@ -1,5 +1,5 @@
 import os
-os.environ['DATABASE_URI'] = 'mysql://demo:demo@db01/demo'
+os.environ['DATABASE_URI'] = 'mysql+mysqlconnector://demo:demo@db01/demo'
 
 import sys
 sys.path.insert(0, '/var/www/demo')
