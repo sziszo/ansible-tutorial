@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt update && apt install -y openssh-server openssh-client
+RUN apt install -y less vim net-tools iproute2
 
 EXPOSE 22
 RUN mkdir -p /root/.ssh
