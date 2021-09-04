@@ -1,0 +1,7 @@
+import os
+os.environ['DATABASE_URI'] = 'mysql+mysqlconnector://{{ db_user }}:{{ db_pass }}@{{ groups.database[0] }}/{{ db_name }}'
+
+import sys
+sys.path.insert(0, '/var/www/demo')
+
+from demo import app as application
