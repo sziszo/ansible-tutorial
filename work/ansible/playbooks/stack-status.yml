@@ -20,8 +20,8 @@
       - name: verify mysql service
         command: service mysql status
 
-      - name: verify mysql listen on 80
-        wait_for: port=3306 timeout=1
+      - name: verify mysql listen on 3306
+        wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 timeout=1
 
   - hosts: controller
     tasks:
