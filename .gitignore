@@ -1,2 +1,4 @@
 # OSX
 .DS_Store
+docker/ansible_key
+docker/ansible_key.pub

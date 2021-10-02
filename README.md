@@ -1,26 +1,32 @@
 # Ansible tutorial
 
-1. create docker image
+## Setting up the environment
+
+1. generate an ssh key
+```
+ssh-keygen -q -t rsa -N '' -f docker/ansible_key
+```
+2. create docker image
 ```
 docker build -t ansible_base:latest docker
 ```
-2. start containers
+3. start containers
 ```
 docker-compose up -d
 ```
-3. connect to the control container
+4. connect to the control container
 ```
 docker-compose exec control bash
 ```
-4. ensure ssh service
+5. ensure ssh service
 ```
 service ssh status
 ```
-5. ssh from control to other container eg.: lb1
+6. ssh from control to other container eg.: lb1
 ```
 root@control $ ssh lb1   
 ```
-6. install ansible on control container
+7. install ansible on control container
 ```
 work/ansible/install-ansible.sh
 ```
